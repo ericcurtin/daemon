@@ -1,0 +1,18 @@
+cmake_minimum_required(VERSION 2.8)
+add_executable(daemon daemon.cpp)
+add_executable(start start.cpp)
+add_executable(stop stop.cpp)
+add_executable(restart restart.cpp)
+add_executable(status status.cpp)
+add_executable(enable enable.cpp)
+add_executable(disable disable.cpp)
+#add_executable(exec exec.cpp)
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+set(CMAKE_CXX_FLAGS "-Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wold-style-cast -Wcast-align -Wunused -Woverloaded-virtual -pedantic -Wconversion -Wsign-conversion -Weffc++")
+install(TARGETS daemon DESTINATION bin)
+#if(IS_DIRECTORY /run/systemd/system)
+#    add_definitions(-DINIT=SYSD)
+#endif
+

@@ -1,0 +1,3 @@
+[submodule "clog"]
+	path = clog
+	url = https://github.com/mmueller/clog.git
