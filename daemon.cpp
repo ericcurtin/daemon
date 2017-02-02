@@ -11,18 +11,9 @@
 using std::set;
 using std::string;
 
-inline char* convert(const std::string& s) {
-   char* pc = new char[s.size() + 1];
-   strcpy(pc, s.c_str());
-   return pc;
-}
-
-inline void vs2vc(vector<string>& vs, vector<char*>& vc) {
-    transform(vs.begin(), vs.end(), back_inserter(vc), convert);
-}
-
 inline int libexec(const string& file) {
-    const string path = LIBEXECDIR + string(getenv("PATH"));
+    const string path = string(LIBEXECDIR) + ":" + string(getenv("PATH"));
+    printf("%s", path.c_str());
     setenv("PATH", path.c_str(), 1);
 
     return execlp(file.c_str(), file.c_str(), NULL);
