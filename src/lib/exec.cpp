@@ -1,7 +1,9 @@
-
 #include <string>
+#include <string.h>
 #include <vector>
 #include <sstream>
+#include <algorithm>
+#include <unistd.h>
 
 using std::string;
 using std::vector;
@@ -27,5 +29,8 @@ int exec(const string& cmd) {
         words.push_back(word);
     }
 
-    return execvp(words.front().c_str(), &words, NULL);
+    vector<char*> wordsCstr;
+    vs2vc(words, wordsCstr);
+
+    return execvp(words.front().c_str(), &wordsCstr[0]);
 }

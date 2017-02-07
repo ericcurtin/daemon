@@ -6,7 +6,7 @@
 #include <string>
 #include <sys/wait.h>
 
-#include "exec.hpp"
+#include "lib/exec.hpp"
 
 using std::set;
 using std::string;
@@ -41,3 +41,4 @@ int main(int argc, char* argv[]) {
 
     return libexec("help");
 }
+
