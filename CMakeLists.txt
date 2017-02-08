@@ -2,6 +2,8 @@ cmake_minimum_required(VERSION 2.8)
 
 include(GNUInstallDirs)
 
+set(CMAKE_BUILD_TYPE "Debug")
+
 if (CMAKE_BUILD_TYPE MATCHES Debug)
     add_definitions(-DLIBEXECDIR="${CMAKE_BINARY_DIR}")
 elseif (EXISTS ${CMAKE_INSTALL_FULL_LIBEXECDIR})
@@ -16,6 +18,8 @@ add_executable(daemon src/daemon.cpp)
 target_link_libraries(daemon exec)
 
 add_executable(start src/lib/exec/start.cpp)
+target_link_libraries(start exec)
+
 add_executable(stop src/lib/exec/stop.cpp)
 add_executable(restart src/lib/exec/restart.cpp)
 add_executable(status src/lib/exec/status.cpp)

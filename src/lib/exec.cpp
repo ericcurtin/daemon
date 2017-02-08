@@ -34,3 +34,4 @@ int exec(const string& cmd) {
 
     return execvp(words.front().c_str(), &wordsCstr[0]);
 }
+

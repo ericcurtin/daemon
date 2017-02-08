@@ -6,14 +6,11 @@
 #include <string>
 #include <sys/wait.h>
 
-#include "lib/exec.hpp"
-
 using std::set;
 using std::string;
 
 inline int libexec(const string& file) {
     const string path = string(LIBEXECDIR) + ":" + string(getenv("PATH"));
-    printf("%s", path.c_str());
     setenv("PATH", path.c_str(), 1);
 
     return execlp(file.c_str(), file.c_str(), NULL);

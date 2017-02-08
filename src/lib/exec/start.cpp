@@ -1,3 +1,7 @@
-int main(int argc, char* argv[]) {
+#include "../exec.hpp"
+
+int main() {
+    exec("systemctl start service");
     return 0;
 }
+
